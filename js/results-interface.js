@@ -14,7 +14,11 @@ GithubSearch.prototype.search = function(searchName){
             // var items = [];
             $.each(data, function(key, value){
                 console.log(key, value);
-                $("#repos").append("<li>"+value.name+"</li>")
+                $("#repos").append("<li><ul>"+value.name +
+                "<li>"+value.description+"</li>"+
+                "<li><a href='"+value.html_url+"'>"+Link+"</li>"+
+                "<li>Date Created"+value.updated_at+"</li>"+
+                "</ul></li>");
             });
         });
         // respos.responseJSON;

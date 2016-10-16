@@ -20,14 +20,32 @@ GithubSearch.prototype.getRepos = function(searchName){
     $.get('https://api.github.com/users/' +searchName +'/repos?access_token=' + apiKey).then(function(response){
         $("#numberOfRepos").text(response.length);
         response.forEach(function(repo){
-            var output = "<a href='"+ repo.html_url+"'><li>"+repo.name + "</a>:";
-            if(repo.description === null){
-                output += " no description</li>";
-            }
-            else{
-                output += repo.description + " </li>";
-            }
-            $("ul#repos").append(output);
+            $("ul#repos").append("<li>"+repo.name +"</li>")
+            $("li").last().click(function(){
+                var dateCreated = repo.created_at;
+                 dateCreated = dateCreated.substring(0,10);
+                var updatedAt = repo.updated_at;
+                updatedAt = updatedAt.substring(0,10);
+                if(repo.description){
+                    var description = repo.description;
+                }
+                else{
+                    var description = "no description";
+                }
+                $("h1#repoName").text(repo.name);
+                $("#description").text(description);
+                $("#dateCreated").text(dateCreated);
+                $("#language").text(repo.language);
+                $("#updatedAt").text(updatedAt);
+                $("a#link").attr("href", repo.html_url);
+            });
+            // if(repo.description === null){
+            //     output += " no description</li>";
+            // }
+            // else{
+            //     output += repo.description + " </li>";
+            // }
+
         })
         console.log(response);
     }).fail(function(error){

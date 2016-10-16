@@ -19,7 +19,6 @@ GithubSearch.prototype.search = function(searchName){
 };
 GithubSearch.prototype.getRepos = function(searchName){
     $.get('https://api.github.com/users/' +searchName +'/repos?access_token=' + apiKey).then(function(response){
-
         response.forEach(function(repo){
             $("ul#repos").append("<li>"+repo.name +"</li>")
             $("li").last().click(function(){

@@ -6,6 +6,6 @@ $(function(){
     $("button").click(function(){
         var searchName = $("#searchName").val();
         githubSearch.search(searchName);
-        githubSearch.getRepos(searchName);
+        githubSearch.getRepos(1);
     });
 });

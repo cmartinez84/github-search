@@ -11,27 +11,25 @@
   <title>GitHub Search</title>
   </head>
   <body>
-      <div class="container">
-          <div class="well">
-              <form class="" action="index.html" method="post">
-                  <label> Enter a Persons screen name and run a git hub search</label>
-                  <input id="searchName" class="form-control" type="text" name="name" value="">
-                  <button class="btn btn-success" type="button" name="button">submit user</button>
-              </form>
-          </div>
-          <div class="well results">
-              <h1> Full Name<span id="fullName"></h1>
-                  <h2>Github Name<span id="userName"></h2>
-              <img id="avatar" src="" alt="" />
-              <!-- <p>Location: <span id="location"> </span></p> -->
-              <p> <a href="#" id="link">Github Page</a></p>
-          </div>
-          <div class="well">
-              <ul id="repos">
-
-              </ul>
-
-          </div>
+    <div class="container">
+      <div class="well">
+        <form class="" action="index.html" method="post">
+          <label> Enter a Persons screen name and run a git hub search</label>
+          <input id="searchName" class="form-control" type="text" name="name" value="">
+          <button class="btn btn-success" type="button" name="button">submit user</button>
+        </form>
       </div>
+      <div class="well results">
+        <h1><span id="fullName"></h1>
+        <h2><span id="userName"></h2>
+        <img id="avatar" src="" alt="" />
+        <p> <a href="#" id="link">Github Page</a></p>
+        <p>Number of GitHub Repos: <span id="numberOfRepos"></span></p>
+      </div>
+      <div class="well">
+        <ul id="repos">
+        </ul>
+      </div>
+    </div>
   </body>
 </html>

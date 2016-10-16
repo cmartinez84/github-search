@@ -8,6 +8,7 @@ GithubSearch.prototype.search = function(searchName){
         $("#userName").text(response.login);
         $("#fullName").text(response.name);
         $("#email").text(response.email);
+        $("#numberOfRepos").text(response.public_repos);
         $("#link").attr("href", response.html_url);
         $("#avatar").attr("src", response.avatar_url);
         console.log(response);
@@ -18,7 +19,7 @@ GithubSearch.prototype.search = function(searchName){
 };
 GithubSearch.prototype.getRepos = function(searchName){
     $.get('https://api.github.com/users/' +searchName +'/repos?access_token=' + apiKey).then(function(response){
-        $("#numberOfRepos").text(response.length);
+
         response.forEach(function(repo){
             $("ul#repos").append("<li>"+repo.name +"</li>")
             $("li").last().click(function(){
